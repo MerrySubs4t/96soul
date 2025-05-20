@@ -1,3 +1,8 @@
+islclosure, getgc, hookfunction = islclosure, getgc, hookfunction
+getgenv, identifyexecutor, setclipboard, makefolder, isfolder = getgenv, identifyexecutor, setclipboard, makefolder, isfolder
+writefile, isfile, readfile, delfile, sethiddenproperty, getnilinstances = writefile, isfile, readfile, delfile, sethiddenproperty, getnilinstances
+cloneref, getconnections, getsenv,fireclickdetector,fireproximityprompt,firetouchinterest = cloneref, getconnections, getsenv,fireclickdetector,fireproximityprompt,firetouchinterest
+----------------------------------------------------
 local Configs: SharedTable = {} or {...};
 local __Class: SharedTable = {} or {...};
 local Funcs: SharedTable = {} or {...};
@@ -277,13 +282,11 @@ function __Class:Loop(Value, func, customFunc)
 	end;
 end;
 
-function __Class:Again(c, v)
-	__Class[#__Class + 1] = task.spawn(function()
-		__Class:Loop(true, function()
+function __Class:Again(c)
+	task.spawn(function()
+		while task.wait(0.1) do
 			pcall(c)
-		end, function()
-			return (v or v())
-		end)
+		end
 	end)
 end
 
