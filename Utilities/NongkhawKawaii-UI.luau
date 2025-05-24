@@ -2362,13 +2362,9 @@ function Env:Window(meta)
 				Desc_1.Size = UDim2.new(0.927999973, 0,0, 20)
 				Desc_1.Font = Enum.Font.GothamBold
 				if type(Value) == "table" then
-					if #Value > 3 then
-						Desc_1.Text = "( . . . . . . )"
-					else
-						Desc_1.Text = table.concat(Value, ", ")
-					end
+					Desc_1.Text = "( . . . . . . )"
 				else
-					Desc_1.Text = Value
+					Desc_1.Text = tostring(Value)
 				end
 				Desc_1.TextColor3 = Color3.fromRGB(255,255,255)
 				Desc_1.TextSize = 12
