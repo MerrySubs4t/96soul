@@ -1366,10 +1366,10 @@ function Env:Window(meta)
 				Title_1.Font = Enum.Font.GothamBold
 				Title_1.RichText = true
 				Title_1.Text = Title
-				Title_1.TextColor3 = Color3.fromRGB(255,255,255)
+				Title_1.TextColor3 = Color3.fromRGB(0, 170, 255)
 				Title_1.TextSize = 14
 				Title_1.TextXAlignment = Enum.TextXAlignment.Left
-				Title_1.TextTransparency = 0.5
+				Title_1.TextTransparency = 0
 
 				UICorner_1.Parent = ToggleImage
 				UICorner_1.CornerRadius = UDim.new(0,5)
