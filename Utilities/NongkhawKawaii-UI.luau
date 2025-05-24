@@ -1329,6 +1329,96 @@ function Env:Window(meta)
 					end)
 				end)
 			end
+			
+			function Env._Class:Icon(meta)
+				
+				local Icon = meta.Icon
+				local Title = meta.Title
+				local Desc = meta.Desc
+				
+				local ToggleImage = Instance.new("Frame")
+				local Title_1 = Instance.new("TextLabel")
+				local UICorner_1 = Instance.new("UICorner")
+				local ImageLabel_1 = Instance.new("ImageLabel")
+				local UIGradient_1 = Instance.new("UIGradient")
+				local icon_1 = Instance.new("ImageLabel")
+				local Desc_1 = Instance.new("TextLabel")
+
+				ToggleImage.Name = "ToggleImage"
+				ToggleImage.Parent = Section_1
+				ToggleImage.AnchorPoint = Vector2.new(0.5, 0.5)
+				ToggleImage.BackgroundColor3 = Color3.fromRGB(0,0,0)
+				ToggleImage.BackgroundTransparency = 0.5
+				ToggleImage.BorderColor3 = Color3.fromRGB(0,0,0)
+				ToggleImage.BorderSizePixel = 0
+				ToggleImage.Size = UDim2.new(0.970000029, 0,0, 50)
+				ToggleImage.ClipsDescendants = true
+
+				Title_1.Name = "Title"
+				Title_1.Parent = ToggleImage
+				Title_1.AnchorPoint = Vector2.new(0.5, 0.5)
+				Title_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				Title_1.BackgroundTransparency = 1
+				Title_1.BorderColor3 = Color3.fromRGB(0,0,0)
+				Title_1.BorderSizePixel = 0
+				Title_1.Position = UDim2.new(0.575679302, 0,0.368333131, 0)
+				Title_1.Size = UDim2.new(0.775981307, 0,0.0700000003, 20)
+				Title_1.Font = Enum.Font.GothamBold
+				Title_1.RichText = true
+				Title_1.Text = Title
+				Title_1.TextColor3 = Color3.fromRGB(255,255,255)
+				Title_1.TextSize = 14
+				Title_1.TextXAlignment = Enum.TextXAlignment.Left
+				Title_1.TextTransparency = 0.5
+
+				UICorner_1.Parent = ToggleImage
+				UICorner_1.CornerRadius = UDim.new(0,5)
+
+				ImageLabel_1.Parent = ToggleImage
+				ImageLabel_1.AnchorPoint = Vector2.new(0.5, 0.5)
+				ImageLabel_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				ImageLabel_1.BackgroundTransparency = 1
+				ImageLabel_1.BorderColor3 = Color3.fromRGB(0,0,0)
+				ImageLabel_1.BorderSizePixel = 0
+				ImageLabel_1.Position = UDim2.new(0.5, 0,0.5, 0)
+				ImageLabel_1.Size = UDim2.new(1, 50,1, 0)
+				ImageLabel_1.Image = "rbxassetid://72380279434385"
+				ImageLabel_1.ImageTransparency = 0.8999999761581421
+				ImageLabel_1.ScaleType = Enum.ScaleType.Crop
+
+				UIGradient_1.Parent = ImageLabel_1
+				UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 127)), ColorSequenceKeypoint.new(0.482699, Color3.fromRGB(0, 170, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(85, 85, 255))}
+
+				icon_1.Name = "icon"
+				icon_1.Parent = ToggleImage
+				icon_1.AnchorPoint = Vector2.new(0.5, 0.5)
+				icon_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				icon_1.BackgroundTransparency = 1
+				icon_1.BorderColor3 = Color3.fromRGB(0,0,0)
+				icon_1.BorderSizePixel = 0
+				icon_1.Position = UDim2.new(0, 25,0.5, 0)
+				icon_1.Size = UDim2.new(0, 35,0, 35)
+				icon_1.Image = GetIcon(Icon)
+				icon_1.ScaleType = Enum.ScaleType.Crop
+
+				Desc_1.Name = "Desc"
+				Desc_1.Parent = ToggleImage
+				Desc_1.AnchorPoint = Vector2.new(0.5, 0.5)
+				Desc_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				Desc_1.BackgroundTransparency = 1
+				Desc_1.BorderColor3 = Color3.fromRGB(0,0,0)
+				Desc_1.BorderSizePixel = 0
+				Desc_1.Position = UDim2.new(0.575679302, 0,0.664999783, 0)
+				Desc_1.Size = UDim2.new(0.775981307, 0,-0.0366666801, 20)
+				Desc_1.Font = Enum.Font.GothamBold
+				Desc_1.RichText = true
+				Desc_1.Text = Desc
+				Desc_1.TextColor3 = Color3.fromRGB(255,255,255)
+				Desc_1.TextSize = 10
+				Desc_1.TextTransparency = 0.5
+				Desc_1.TextXAlignment = Enum.TextXAlignment.Left
+				
+			end
 
 			function Env._Class:Toggle(meta)
 				local Title = meta.Title
@@ -2891,7 +2981,7 @@ function Env:Window(meta)
 				TextLabel_1.Position = UDim2.new(0.5, 0,0.5, 0)
 				TextLabel_1.Size = UDim2.new(1, 0,1, 0)
 				TextLabel_1.Font = Enum.Font.GothamBold
-				TextLabel_1.Text = tostring(Key)
+				TextLabel_1.Text = tostring(Value)
 				TextLabel_1.TextColor3 = Color3.fromRGB(255,255,255)
 				TextLabel_1.TextSize = 13
 				
