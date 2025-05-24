@@ -836,7 +836,7 @@ function Env:Window(meta)
 			UICorner_3.CornerRadius = UDim.new(0,5)
 
 			UIListLayout_4.Parent = Section_1
-			UIListLayout_4.Padding = UDim.new(0,8)
+			UIListLayout_4.Padding = UDim.new(0,5)
 			UIListLayout_4.HorizontalAlignment = Enum.HorizontalAlignment.Center
 			UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
 
@@ -1295,7 +1295,7 @@ function Env:Window(meta)
 						d = "Out",
 						g = {Rotation = -20}
 					}):Play()
-					delay(0.1, function()
+					delay(0.3, function()
 						tw({
 							v = icon_1,
 							t = 0.15,
@@ -1378,6 +1378,7 @@ function Env:Window(meta)
 					Title_1.TextColor3 = Color3.fromRGB(255,255,255)
 					Title_1.TextSize = 14
 					Title_1.TextXAlignment = Enum.TextXAlignment.Left
+					Title_1.TextTransparency = 0.5
 
 					UICorner_1.Parent = ToggleImage
 					UICorner_1.CornerRadius = UDim.new(0,5)
@@ -1481,6 +1482,13 @@ function Env:Window(meta)
 								d = "Out",
 								g = {Size = UDim2.new(0, 0,0, 0)}
 							}):Play()
+							tw({
+								v = Title_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {TextTransparency = 0.5}
+							}):Play()
 						elseif Value then 
 							Callback(Value)
 							tw({
@@ -1496,6 +1504,13 @@ function Env:Window(meta)
 								s = "Bounce",
 								d = "Out",
 								g = {Size = UDim2.new(0, 21,0, 21)}
+							}):Play()
+							tw({
+								v = Title_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {TextTransparency = 0}
 							}):Play()
 							delay(0.05, function()
 								tw({
@@ -1582,6 +1597,7 @@ function Env:Window(meta)
 					Title_1.TextColor3 = Color3.fromRGB(255,255,255)
 					Title_1.TextSize = 14
 					Title_1.TextXAlignment = Enum.TextXAlignment.Left
+					Title_1.TextTransparency = 0.5
 
 					UICorner_1.Parent = Togglez
 					UICorner_1.CornerRadius = UDim.new(0,5)
@@ -1674,8 +1690,22 @@ function Env:Window(meta)
 								d = "Out",
 								g = {Size = UDim2.new(0, 0,0, 0)}
 							}):Play()
+							tw({
+								v = Title_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {TextTransparency = 0.5}
+							}):Play()
 						elseif Value then 
 							Callback(Value)
+							tw({
+								v = Title_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {TextTransparency = 0}
+							}):Play()
 							tw({
 								v = ColorFrame_1,
 								t = 0.3,
@@ -1797,7 +1827,7 @@ function Env:Window(meta)
 				Title_1.BorderColor3 = Color3.fromRGB(0,0,0)
 				Title_1.BorderSizePixel = 0
 				Title_1.Position = UDim2.new(0.499876201, 0,0.368333131, 0)
-				Title_1.Size = UDim2.new(0.927587509, 0,0, 25)
+				Title_1.Size = UDim2.new(0.927587509, 0,0, 15)
 				Title_1.Font = Enum.Font.GothamBold
 				Title_1.RichText = true
 				Title_1.Text = Title
@@ -1842,7 +1872,7 @@ function Env:Window(meta)
 					Desc_1.Text = v
 					local descHeight = Desc_1.TextBounds.Y + 5
 					Desc_1.Size = UDim2.new(0.927587509, 0, 0, descHeight)
-					Paragarp.Size = UDim2.new(0.97, 0, 0, descHeight + 25)
+					Paragarp.Size = UDim2.new(0.97, 0, 0, descHeight + 35)
 				end
 				
 				function Index:Visible(v)
@@ -2774,6 +2804,188 @@ function Env:Window(meta)
 				return itemslist
 			end
 
+			function Env._Class:Keybind(info)
+				local Title = info.Title
+				local Key = info.Key or Enum.KeyCode.Q
+				local Value = info.Value or false
+				local Callback = info.Callback or function() end
+				
+				local Keybind = Instance.new("Frame")
+				local UICorner_1 = Instance.new("UICorner")
+				local ImageLabel_1 = Instance.new("ImageLabel")
+				local UIGradient_1 = Instance.new("UIGradient")
+				local Title_1 = Instance.new("TextLabel")
+				local Bin_1 = Instance.new("Frame")
+				local UICorner_2 = Instance.new("UICorner")
+				local UIGradient_2 = Instance.new("UIGradient")
+				local TextLabel_1 = Instance.new("TextLabel")
+				local ClickChange = click(Keybind)
+
+				Keybind.Name = "Keybind"
+				Keybind.Parent = Section_1
+				Keybind.AnchorPoint = Vector2.new(0.5, 0.5)
+				Keybind.BackgroundColor3 = Color3.fromRGB(0,0,0)
+				Keybind.BackgroundTransparency = 0.5
+				Keybind.BorderColor3 = Color3.fromRGB(0,0,0)
+				Keybind.BorderSizePixel = 0
+				Keybind.Size = UDim2.new(0.970000029, 0,0, 45)
+				Keybind.ClipsDescendants = true
+
+				UICorner_1.Parent = Keybind
+				UICorner_1.CornerRadius = UDim.new(0,5)
+
+				ImageLabel_1.Parent = Keybind
+				ImageLabel_1.AnchorPoint = Vector2.new(0.5, 0.5)
+				ImageLabel_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				ImageLabel_1.BackgroundTransparency = 1
+				ImageLabel_1.BorderColor3 = Color3.fromRGB(0,0,0)
+				ImageLabel_1.BorderSizePixel = 0
+				ImageLabel_1.Position = UDim2.new(0.5, 0,0.5, 0)
+				ImageLabel_1.Size = UDim2.new(1, 50,1, 0)
+				ImageLabel_1.Image = "rbxassetid://72380279434385"
+				ImageLabel_1.ImageTransparency = 0.8999999761581421
+				ImageLabel_1.ScaleType = Enum.ScaleType.Crop
+
+				UIGradient_1.Parent = ImageLabel_1
+				UIGradient_1.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 127)), ColorSequenceKeypoint.new(0.482699, Color3.fromRGB(0, 170, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(85, 85, 255))}
+
+				Title_1.Name = "Title"
+				Title_1.Parent = Keybind
+				Title_1.AnchorPoint = Vector2.new(0.5, 0.5)
+				Title_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				Title_1.BackgroundTransparency = 1
+				Title_1.BorderColor3 = Color3.fromRGB(0,0,0)
+				Title_1.BorderSizePixel = 0
+				Title_1.LayoutOrder = -3
+				Title_1.Position = UDim2.new(0.5, 0,0.5, 0)
+				Title_1.Size = UDim2.new(0.927834988, 0,0, 20)
+				Title_1.Font = Enum.Font.GothamBold
+				Title_1.Text = Title
+				Title_1.TextColor3 = Color3.fromRGB(255,255,255)
+				Title_1.TextSize = 14
+				Title_1.TextTransparency = 0.5
+				Title_1.TextXAlignment = Enum.TextXAlignment.Left
+
+				Bin_1.Name = "Bin"
+				Bin_1.Parent = Keybind
+				Bin_1.AnchorPoint = Vector2.new(1, 0.5)
+				Bin_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				Bin_1.BackgroundTransparency = 0.5
+				Bin_1.BorderColor3 = Color3.fromRGB(0,0,0)
+				Bin_1.BorderSizePixel = 0
+				Bin_1.Position = UDim2.new(0.97, 0,0.5, 0)
+				Bin_1.Size = UDim2.new(0, 30,0, 25)
+
+				UICorner_2.Parent = Bin_1
+
+				UIGradient_2.Parent = Bin_1
+				UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 255, 127)), ColorSequenceKeypoint.new(0.482699, Color3.fromRGB(0, 170, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(85, 85, 255))}
+				UIGradient_2.Rotation = 144
+
+				TextLabel_1.Parent = Bin_1
+				TextLabel_1.AnchorPoint = Vector2.new(0.5, 0.5)
+				TextLabel_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+				TextLabel_1.BackgroundTransparency = 1
+				TextLabel_1.BorderColor3 = Color3.fromRGB(0,0,0)
+				TextLabel_1.BorderSizePixel = 0
+				TextLabel_1.Position = UDim2.new(0.5, 0,0.5, 0)
+				TextLabel_1.Size = UDim2.new(1, 0,1, 0)
+				TextLabel_1.Font = Enum.Font.GothamBold
+				TextLabel_1.Text = tostring(Value)
+				TextLabel_1.TextColor3 = Color3.fromRGB(255,255,255)
+				TextLabel_1.TextSize = 13
+				
+				local function adjustBoxBindSize()
+					local textSize = game:GetService("TextService"):GetTextSize(TextLabel_1.Text, TextLabel_1.TextSize, TextLabel_1.Font, Vector2.new(1000, 1000))
+					Bin_1.Size = UDim2.new(0, textSize.X + 15, 0, 25)
+				end
+
+				adjustBoxBindSize()
+
+				local function changeKey()
+					TextLabel_1.Text = "..."
+					local inputConnection
+					tw({
+						v = Title_1,
+						t = 0.15,
+						s = "Linear",
+						d = "Out",
+						g = {TextTransparency = 0}
+					}):Play()
+
+					inputConnection = game:GetService("UserInputService").InputBegan:Connect(function(input)
+						if input.UserInputType == Enum.UserInputType.Keyboard then
+							Key = input.KeyCode
+							TextLabel_1.Text = tostring(Key):gsub("Enum.KeyCode.", "")
+							adjustBoxBindSize()
+							inputConnection:Disconnect()
+							tw({
+								v = Title_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {TextTransparency = 0.5}
+							}):Play()
+							tw({
+								v = Bin_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {BackgroundTransparency = 0.5}
+							}):Play()
+							Callback(Key, Value)
+						end
+					end)
+				end
+
+				UserInputService.InputEnded:Connect(function(input, gameProcessed)
+					if input.KeyCode == Key then
+						Value = not Value
+						if Value then
+							tw({
+								v = Title_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {TextTransparency = 0}
+							}):Play()
+							tw({
+								v = Bin_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {BackgroundTransparency = 0}
+							}):Play()
+						else
+							tw({
+								v = Title_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {TextTransparency = 0.5}
+							}):Play()
+							tw({
+								v = Bin_1,
+								t = 0.15,
+								s = "Linear",
+								d = "Out",
+								g = {BackgroundTransparency = 0.5}
+							}):Play()
+						end
+						Callback(Key, Value)
+					end
+				end)
+
+				delay(0, function()
+					Callback(Key, Value)
+				end)
+
+				ClickChange.MouseButton1Click:Connect(function()
+					changeKey()
+					EffectClick2(ClickChange, Keybind)
+				end)
+			end
+
 			return Env._Class
 		end
 
@@ -2783,55 +2995,4 @@ function Env:Window(meta)
 	return Env.Tabs
 end
 
-local Banner = {
-	['Genral'] = 101849161408766,
-	['Auto'] = 110162136250435,
-	['Setting'] = 72210587662292,
-	['Misc'] = 84034775913393,
-	['Items'] = 98574803492996,
-	['Shop'] = 74630923244478,
-	['Teleport'] = 137847566773112,
-	['Visual'] = 123257335719276,
-	['Combat'] = 112935442242481,
-	['Update'] = 86844430363710,
-}
-
-local Window = Env:Window({
-	Title = "Nong Khaw",
-	Desc = "- Project"
-})
-
-local Update = Window:Add({
-	Title = "Update",
-	Desc = "Update and Change Log",
-	Banner = Banner.Update
-})
-
-local Section = Update:Section({
-	Title = "Section General",
-	Side = 'l'
-})
-
-Section:Button({
-       Title = "Hello",
-       Callback = function()
-ens})
-
-Section:Toggle({
- Title = "Toggle",
- Des = "Automatic",
- Value = false,
- Callback = function()
-   
-end
-})
-
-Section:Dropdown({
-	Title = "Select",
-	Multi = true,
-	List = {"Hello", "AJ", "List1", "1", "2"},
-	Value = {"Hello", "AJ", "List", "1", "2"},
-	Callback = function(v)
-		print(v)
-	end,
-})
+return Env
