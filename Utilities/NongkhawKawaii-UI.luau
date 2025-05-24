@@ -2891,7 +2891,7 @@ function Env:Window(meta)
 				TextLabel_1.Position = UDim2.new(0.5, 0,0.5, 0)
 				TextLabel_1.Size = UDim2.new(1, 0,1, 0)
 				TextLabel_1.Font = Enum.Font.GothamBold
-				TextLabel_1.Text = tostring(Value)
+				TextLabel_1.Text = tostring(Key)
 				TextLabel_1.TextColor3 = Color3.fromRGB(255,255,255)
 				TextLabel_1.TextSize = 13
 				
