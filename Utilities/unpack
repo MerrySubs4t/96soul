@@ -2,6 +2,19 @@ local Env = loadstring(game:HttpGet("https://raw.githubusercontent.com/MerrySubs
 local __Class, translate, Configs, Funcs, Default = table.unpack(loadstring(game:HttpGet("https://raw.githubusercontent.com/MerrySubs4t/96soul/refs/heads/main/Utilities/Compiler.inc", true))())
 local Window = Env:Window({Title = translate("Nong Khaw", "น้องข้าว"), Desc = translate("Project", "โปรเจกต์")})
 
+local Banners = {
+	['Genral'] = 101849161408766,
+	['Auto'] = 110162136250435,
+	['Setting'] = 72210587662292,
+	['Misc'] = 84034775913393,
+	['Items'] = 98574803492996,
+	['Shop'] = 74630923244478,
+	['Teleport'] = 137847566773112,
+	['Visual'] = 123257335719276,
+	['Combat'] = 112935442242481,
+	['Update'] = 86844430363710,
+}
+
 local function Add(Title, Desc, Banner)
 	return Window:Add({Title = Title, Desc = Desc, Banner = Banners and Banners[Banner]})
 end
