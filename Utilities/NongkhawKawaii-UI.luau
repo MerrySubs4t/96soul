@@ -1369,7 +1369,6 @@ function Env:Window(meta)
 				Title_1.TextColor3 = Color3.fromRGB(0, 170, 255)
 				Title_1.TextSize = 14
 				Title_1.TextXAlignment = Enum.TextXAlignment.Left
-				Title_1.TextTransparency = 0
 
 				UICorner_1.Parent = ToggleImage
 				UICorner_1.CornerRadius = UDim.new(0,5)
@@ -2777,11 +2776,18 @@ function Env:Window(meta)
 							for i,v in pairs(ScrollingFrame_1:GetChildren()) do
 								if v:IsA("Frame") then
 									tw({
-										v = v.Title,
+										v = v.Real.Title,
 										t = 0.15,
 										s = "Exponential",
 										d = "Out",
 										g = {TextTransparency = 0.5}
+									}):Play()
+									tw({
+										v = v.Real.Line,
+										t = 0.15,
+										s = "Exponential",
+										d = "Out",
+										g = {BackgroundTransparency = 1}
 									}):Play()
 								end
 							end
