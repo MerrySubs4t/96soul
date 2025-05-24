@@ -213,10 +213,6 @@ Default = function(v: string, a: boolean | string | number | table | any)
 	end;
 end;
 
-C = function() 
-	return Configs;
-end;
-
 function __Class:Loop(Value, func, customFunc)
 	while Value do
 		local startTick = tick();
@@ -305,4 +301,4 @@ end
 
 Configs = Load();
 
-return {__Class;translate;C;Funcs;Default}
+return {__Class;translate;Configs;Funcs;Default}
