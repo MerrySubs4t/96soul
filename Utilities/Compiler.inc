@@ -146,6 +146,15 @@ function __Class:Distance(v: any)
 	return nil;
 end;
 
+function __Class:Check(config, _table)
+	for _,v in pairs(_table) do
+		if config[v] == true then
+			return true ;
+		end ;
+	end ;
+	return false;
+end;
+
 function __Class:GetCloset(v: Folder | any?)
 	local closest, dist, hp = nil, math.huge, math.huge;
 	for _, mob in ipairs(v:GetChildren()) do
@@ -202,6 +211,10 @@ Default = function(v: string, a: boolean | string | number | table | any)
 			Configs[v] = a;
 		end;
 	end;
+end;
+
+C = function() 
+	return Configs;
 end;
 
 function __Class:Loop(Value, func, customFunc)
@@ -292,4 +305,4 @@ end
 
 Configs = Load();
 
-return {__Class;translate;Configs;Funcs;Default}
+return {__Class;translate;C;Funcs;Default}
