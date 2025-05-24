@@ -1,4 +1,4 @@
-islclosure, getgc, hookfunction = islclosure, getgc, hookfunction
+islclosure, getgc, hookfunction, getrenv = islclosure, getgc, hookfunction, getrenv
 getgenv, identifyexecutor, setclipboard, makefolder, isfolder = getgenv, identifyexecutor, setclipboard, makefolder, isfolder
 writefile, isfile, readfile, delfile, sethiddenproperty, getnilinstances = writefile, isfile, readfile, delfile, sethiddenproperty, getnilinstances
 cloneref, getconnections, getsenv,fireclickdetector,fireproximityprompt,firetouchinterest = cloneref, getconnections, getsenv,fireclickdetector,fireproximityprompt,firetouchinterest
@@ -112,7 +112,7 @@ function __Class:Equip(Tool: Tool)
 	end;
 end;
 
-function __Class:translate(en: string, th: string)
+translate = function(en: string, th: string)
 	if _G.Thai or getgenv().Thai or _G.Thailand then
 		return tostring(th);
 	else
@@ -208,70 +208,6 @@ C = function()
 	return Configs;
 end;
 
-Create = function()
-	local Create: table = {};
-	
-	local function toAsset(ID)
-		return "http://www.roblox.com/asset/?id=" .. tostring(ID);
-	end;
-
-	function Create:Section(Tab, Title, Side)
-		return Tab:CreateSection({ Title = Title, Side = Side });
-	end;
-
-	function Create:Toggle(Tab, Title, SettingName, CallBack)
-		local tasks;
-		return Tab:CreateToggle({Title = Title, Value = C()[SettingName], CallBack = CallBack or function(value)
-			C()[SettingName] = value;
-			if value then
-				tasks = task.spawn(function()
-					if Funcs[SettingName] then
-						Funcs[SettingName](C()[SettingName]);
-					end;
-				end);
-			elseif not value and tasks then 
-				task.cancel(tasks);
-			end;
-			__Class:Save(SettingName, value);
-		end});
-	end;
-	
-	function Create:ToggleImage(Tab, Title, SettingName,id, CallBack)
-		local tasks;
-		return Tab:ImageToggle({Title = Title,Icon = toAsset(id), Value = C()[SettingName], CallBack = CallBack or function(value)
-			C()[SettingName] = value;
-			if value then
-				tasks = task.spawn(function()
-					if Funcs[SettingName] then
-						Funcs[SettingName](C()[SettingName]);
-					end;
-				end);
-			elseif not value and tasks then 
-				task.cancel(tasks);
-			end;
-			__Class:Save(SettingName, value);
-		end});
-	end;
-
-	function Create:Button(Tab, Title, Callback)
-		return Tab:CreateButton({Title = Title, Callback = Callback });
-	end;
-
-	function Create:ButtonImage(Tab, Title, Desc, ID, Callback)
-		return Tab:ButtonImage({Title = Title, Desc = Desc ,Icon = toAsset(ID), Callback = Callback });
-	end;
-
-	function Create:Dropdown(Tab, Title, List , Value, Multi, Callback)
-		return Tab:CreateDropdown({Title = Title, List = List, Value = Value , Multi = Multi, Callback = Callback });
-	end;
-
-	function Create:CreateSelect(Tab, Title, List , Value, Callback)
-		return Tab:CreateSelect({Title = Title, List = List, Value = Value, Callback = Callback })
-	end;
-
-	return Create;
-end;
-
 function __Class:Loop(Value, func, customFunc)
 	while Value do
 		local startTick = tick();
@@ -282,14 +218,82 @@ function __Class:Loop(Value, func, customFunc)
 	end;
 end;
 
-function __Class:Again(c)
+function __Class:Again(c: func)
 	task.spawn(function()
 		while task.wait(0.1) do
-			pcall(c)
+			pcall(c);
+		end;
+	end);
+end;
+
+function __Class:pairs(meta: Instance, callback: func)
+	for _, v in pairs(meta:GetChildren()) do
+		callback(v);
+	end;
+end;
+
+function __Class:ipairs(meta: Instance, callback: func)
+	for _, v in ipairs(meta:GetDescendants()) do
+		callback(v);
+	end;
+end;
+
+function __Class:touchconnect(v: BasePart)
+	if v:IsA("BasePart") then
+		firetouchinterest(HumanoidRootPart, v, 1);
+		firetouchinterest(HumanoidRootPart, v, 0);
+	end;
+end;
+
+function __Class:IsEquiped(v: string)
+	return Character:FindFirstChild(v);
+end;
+
+function __Class:HaveItem(v: string)
+	return Character:FindFirstChild(v) or Backpack:FindFirstChild(v);
+end;
+
+function __Class:GetScriptENV(s: LocalScript)
+	return getsenv(s);
+end;
+
+function __Class:GetRuntimeENV(s: LocalScript)
+	return getrenv(s);
+end;
+
+function __Class:GetTags(s: Tags, callback: func)
+	for _, v in pairs(s:GetTags(s)) do
+		for _, a in pairs(v:GetChildren()) do
+			callback(v);
+		end;
+	end;
+end;
+
+function __Class:HOP()
+	pcall(function()
+		local ListServers = function(cursor)
+			return HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..PlaceId.."/servers/Public?sortOrder=Asc&limit=100" .. ((cursor and "&cursor="..cursor) or "")))
 		end
+		local Server, Next;
+		repeat
+			local Servers = ListServers(Next)
+			Server = Servers.data[1]
+			Next = Servers.nextPageCursor
+		until Server
+		TeleportService:TeleportToPlaceInstance(PlaceId,Server.id,LocalPlayer)
 	end)
 end
 
-Configs = Load()
+function __Class:Rejoin()
+	if #Players:GetPlayers() <= 1 then
+		LocalPlayer:Kick("\nRejoining...")
+		wait()
+		TeleportService:Teleport(PlaceId, LocalPlayer)
+	else
+		TeleportService:TeleportToPlaceInstance(PlaceId, JobId, LocalPlayer)
+	end
+end
 
-return {__Class;Create;C;Funcs;Default}
+Configs = Load();
+
+return {__Class;translate;C;Funcs;Default}
