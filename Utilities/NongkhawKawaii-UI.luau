@@ -1281,7 +1281,7 @@ function Env:Window(meta)
 				Desc_1.Font = Enum.Font.GothamBold
 				Desc_1.Text = Link
 				Desc_1.TextColor3 = Color3.fromRGB(255,255,255)
-				Desc_1.TextSize = 11
+				Desc_1.TextSize = 13
 				Desc_1.TextTransparency = 0.5
 				Desc_1.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -1295,7 +1295,7 @@ function Env:Window(meta)
 						d = "Out",
 						g = {Rotation = -20}
 					}):Play()
-					delay(0.3, function()
+					delay(0.1, function()
 						tw({
 							v = icon_1,
 							t = 0.15,
