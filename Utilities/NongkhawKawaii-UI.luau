@@ -2812,6 +2812,20 @@ local Section = Update:Section({
 	Side = 'l'
 })
 
+Section:Button({
+       Title = "Hello",
+       Callback = function()
+ens})
+
+Section:Toggle({
+ Title = "Toggle",
+ Des = "Automatic",
+ Value = false,
+ Callback = function()
+   
+end
+})
+
 Section:Dropdown({
 	Title = "Select",
 	Multi = true,
