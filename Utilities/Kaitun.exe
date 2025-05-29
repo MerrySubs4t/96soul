@@ -17,7 +17,7 @@ function Env:Kaitun()
 
 	
 	Kaitan.Name = "Kaitan"
-	Kaitan.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	Kaitan.Parent = game.CoreGui
 	Kaitan.ZIndexBehavior = Enum.ZIndexBehavior.Global
 	Kaitan.IgnoreGuiInset = true
 
