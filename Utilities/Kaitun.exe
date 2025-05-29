@@ -1,0 +1,240 @@
+local Env = {}
+
+function Env:Kaitun()
+	local Kaitan = Instance.new("ScreenGui")
+	local Background_1 = Instance.new("Frame")
+	local Layer_1 = Instance.new("ImageLabel")
+	local Header_1 = Instance.new("Frame")
+	local UIListLayout_3 = Instance.new("UIListLayout")
+	local Title_1 = Instance.new("TextLabel")
+	local UIPadding_2 = Instance.new("UIPadding")
+	local Desc_1 = Instance.new("TextLabel")
+	local Logo_1 = Instance.new("ImageLabel")
+	local inside_1 = Instance.new("Frame")
+	local Page_1 = Instance.new("Frame")
+	local ScrollingFrame_1 = Instance.new("ScrollingFrame")
+	local UIListLayout_2 = Instance.new("UIListLayout")
+
+	
+	Kaitan.Name = "Kaitan"
+	Kaitan.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	Kaitan.ZIndexBehavior = Enum.ZIndexBehavior.Global
+	Kaitan.IgnoreGuiInset = true
+
+	Background_1.Name = "Background"
+	Background_1.Parent = Kaitan
+	Background_1.AnchorPoint = Vector2.new(0.5, 0.5)
+	Background_1.BackgroundColor3 = Color3.fromRGB(0,0,0)
+	Background_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	Background_1.BorderSizePixel = 0
+	Background_1.Position = UDim2.new(0.5, 0,0.5, 0)
+	Background_1.Size = UDim2.new(1, 0,1, 0)
+
+	Layer_1.Name = "Layer"
+	Layer_1.Parent = Background_1
+	Layer_1.AnchorPoint = Vector2.new(0.5, 0.5)
+	Layer_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	Layer_1.BackgroundTransparency = 1
+	Layer_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	Layer_1.BorderSizePixel = 0
+	Layer_1.Position = UDim2.new(0.5, 0,0.5, 0)
+	Layer_1.Size = UDim2.new(1, 0,1, 0)
+	Layer_1.Image = "rbxassetid://132687652275989"
+	Layer_1.ImageColor3 = Color3.fromRGB(0,255,127)
+	Layer_1.ImageTransparency = 0.6000000238418579
+
+	Logo_1.Name = "Logo"
+	Logo_1.Parent = Background_1
+	Logo_1.AnchorPoint = Vector2.new(0.5, 0.5)
+	Logo_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	Logo_1.BackgroundTransparency = 1
+	Logo_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	Logo_1.BorderSizePixel = 0
+	Logo_1.Position = UDim2.new(0.5, 0,0.5, 0)
+	Logo_1.Size = UDim2.new(0.800000012, 0,0.800000012, 0)
+	Logo_1.Image = "rbxassetid://128185233852701"
+	Logo_1.ImageTransparency = 0.949999988079071
+	Logo_1.ScaleType = Enum.ScaleType.Crop
+
+	inside_1.Name = "inside"
+	inside_1.Parent = Background_1
+	inside_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	inside_1.BackgroundTransparency = 1
+	inside_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	inside_1.BorderSizePixel = 0
+	inside_1.Size = UDim2.new(1, 0,1, 0)
+
+	Page_1.Name = "Page"
+	Page_1.Parent = inside_1
+	Page_1.AnchorPoint = Vector2.new(0.5, 0.5)
+	Page_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	Page_1.BackgroundTransparency = 1
+	Page_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	Page_1.BorderSizePixel = 0
+	Page_1.Position = UDim2.new(0.5, 0,0.542654216, 0)
+	Page_1.Size = UDim2.new(1, 0,0.780463278, 100)
+	
+	ScrollingFrame_1.Name = "ScrollingFrame"
+	ScrollingFrame_1.Parent = Page_1
+	ScrollingFrame_1.Active = true
+	ScrollingFrame_1.AnchorPoint = Vector2.new(0.5, 0.5)
+	ScrollingFrame_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	ScrollingFrame_1.BackgroundTransparency = 1
+	ScrollingFrame_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	ScrollingFrame_1.BorderSizePixel = 0
+	ScrollingFrame_1.Position = UDim2.new(0.5, 0,0.5, 0)
+	ScrollingFrame_1.Size = UDim2.new(1, 0,1, 0)
+	ScrollingFrame_1.ClipsDescendants = true
+	ScrollingFrame_1.AutomaticCanvasSize = Enum.AutomaticSize.None
+	ScrollingFrame_1.BottomImage = "rbxasset://textures/ui/Scroll/scroll-bottom.png"
+	ScrollingFrame_1.CanvasPosition = Vector2.new(0, 0)
+	ScrollingFrame_1.ElasticBehavior = Enum.ElasticBehavior.WhenScrollable
+	ScrollingFrame_1.HorizontalScrollBarInset = Enum.ScrollBarInset.None
+	ScrollingFrame_1.MidImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	ScrollingFrame_1.ScrollBarImageColor3 = Color3.fromRGB(0,0,0)
+	ScrollingFrame_1.ScrollBarImageTransparency = 0
+	ScrollingFrame_1.ScrollBarThickness = 0
+	ScrollingFrame_1.ScrollingDirection = Enum.ScrollingDirection.XY
+	ScrollingFrame_1.TopImage = "rbxasset://textures/ui/Scroll/scroll-top.png"
+	ScrollingFrame_1.VerticalScrollBarInset = Enum.ScrollBarInset.None
+	ScrollingFrame_1.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Right
+	
+	UIListLayout_2.Parent = inside_1
+	UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+
+	Header_1.Name = "Header"
+	Header_1.Parent = inside_1
+	Header_1.AnchorPoint = Vector2.new(0.5, 0.5)
+	Header_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	Header_1.BackgroundTransparency = 1
+	Header_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	Header_1.BorderSizePixel = 0
+	Header_1.LayoutOrder = -999
+	Header_1.Position = UDim2.new(0.5, 0,0.0426542237, 0)
+	Header_1.Size = UDim2.new(1, 0,-0.0489197373, 100)
+
+	UIListLayout_3.Parent = Header_1
+	UIListLayout_3.Padding = UDim.new(0,7)
+	UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+	UIListLayout_3.VerticalAlignment = Enum.VerticalAlignment.Center
+
+	Title_1.Name = "Title"
+	Title_1.Parent = Header_1
+	Title_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	Title_1.BackgroundTransparency = 1
+	Title_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	Title_1.BorderSizePixel = 0
+	Title_1.LayoutOrder = -1
+	Title_1.Position = UDim2.new(0.0268817209, 0,0.063573882, 0)
+	Title_1.Size = UDim2.new(0.97299999, 0,0, 10)
+	Title_1.Font = Enum.Font.GothamBold
+	Title_1.RichText = true
+	Title_1.Text = "Fetching's Officail - Kaitan"
+	Title_1.TextColor3 = Color3.fromRGB(255,255,255)
+	Title_1.TextSize = 17
+	Title_1.TextXAlignment = Enum.TextXAlignment.Left
+
+	UIPadding_2.Parent = Header_1
+	UIPadding_2.PaddingLeft = UDim.new(0,16)
+
+	Desc_1.Name = "Desc"
+	Desc_1.Parent = Header_1
+	Desc_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	Desc_1.BackgroundTransparency = 1
+	Desc_1.BorderColor3 = Color3.fromRGB(0,0,0)
+	Desc_1.BorderSizePixel = 0
+	Desc_1.LayoutOrder = -1
+	Desc_1.Position = UDim2.new(0.0268817209, 0,0.063573882, 0)
+	Desc_1.Size = UDim2.new(0.97299999, 0,0, 10)
+	Desc_1.Font = Enum.Font.GothamBold
+	Desc_1.RichText = true
+	Desc_1.Text = "By 96soul"
+	Desc_1.TextColor3 = Color3.fromRGB(255,255,255)
+	Desc_1.TextSize = 12
+	Desc_1.TextTransparency = 0.5
+	Desc_1.TextXAlignment = Enum.TextXAlignment.Left
+	
+	local UIListLayout_1 = Instance.new("UIListLayout")
+	local UIPadding_1 = Instance.new("UIPadding")
+	
+
+	UIListLayout_1.Parent = ScrollingFrame_1
+	UIListLayout_1.Padding = UDim.new(0,15)
+	UIListLayout_1.SortOrder = Enum.SortOrder.LayoutOrder
+
+	UIPadding_1.Parent = ScrollingFrame_1
+	UIPadding_1.PaddingLeft = UDim.new(0,16)
+	
+	UIListLayout_1:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+		ScrollingFrame_1.CanvasSize = UDim2.new(0, 0, 0, UIListLayout_1.AbsoluteContentSize.Y + 5)
+	end)
+	
+	Env.Label = {}
+	
+	function Env.Label:Normal(Title)
+		local Normal_1 = Instance.new("TextLabel")
+
+		Normal_1.Name = "Normal"
+		Normal_1.Parent = ScrollingFrame_1
+		Normal_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		Normal_1.BackgroundTransparency = 1
+		Normal_1.BorderColor3 = Color3.fromRGB(0,0,0)
+		Normal_1.BorderSizePixel = 0
+		Normal_1.LayoutOrder = -1
+		Normal_1.Position = UDim2.new(0.0268817209, 0,0.063573882, 0)
+		Normal_1.Font = Enum.Font.GothamBold
+		Normal_1.RichText = true
+		Normal_1.Text = Title
+		Normal_1.TextColor3 = Color3.fromRGB(255,255,255)
+		Normal_1.TextSize = 25
+		Normal_1.TextXAlignment = Enum.TextXAlignment.Left
+		Normal_1.TextWrapped = true
+		Normal_1.Size = UDim2.new(0, 937, 0, 15)
+		Normal_1.Size = UDim2.new(0, 937, 0, Normal_1.TextBounds.Y + 5)
+		Normal_1.TextYAlignment = Enum.TextYAlignment.Top
+
+		local i = {}
+
+		function i:up(a)
+			Normal_1.Text = a
+			Normal_1.Size = UDim2.new(0, 937, 0, Normal_1.TextBounds.Y + 5)
+		end
+
+		return i
+	end
+	
+	function Env.Label:Task(Title)
+		local Task_1 = Instance.new("TextLabel")
+		Task_1.Name = "Task"
+		Task_1.Parent = ScrollingFrame_1
+		Task_1.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		Task_1.BackgroundTransparency = 1
+		Task_1.BorderColor3 = Color3.fromRGB(0,0,0)
+		Task_1.BorderSizePixel = 0
+		Task_1.LayoutOrder = -999
+		Task_1.Position = UDim2.new(0, 0,-4.47836186e-08, 0)
+		Task_1.Font = Enum.Font.GothamBold
+		Task_1.RichText = true
+		Task_1.Text = "Task : " .. tostring(Title)
+		Task_1.TextColor3 = Color3.fromRGB(255,255,255)
+		Task_1.TextSize = 40
+		Task_1.TextXAlignment = Enum.TextXAlignment.Left
+		Task_1.TextYAlignment = Enum.TextYAlignment.Top
+		Task_1.TextWrapped = true
+		Task_1.Size = UDim2.new(0, 937, 0, 15)
+		Task_1.Size = UDim2.new(0, 937, 0, Task_1.TextBounds.Y + 5)
+		
+		local i = {}
+		
+		function i:up(a)
+			Task_1.Text = a
+			Task_1.Size = UDim2.new(0, 937, 0, Task_1.TextBounds.Y + 5)
+		end
+		
+		return i
+	end
+	
+	return Env.Label
+end
+
+return Env
