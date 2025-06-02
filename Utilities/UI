@@ -71,6 +71,7 @@ click = function(p)
 	Click.Text = ""
 	Click.TextColor3 = Color3.fromRGB(0, 0, 0)
 	Click.TextSize = 14.000
+	Click.ZIndex = p.ZIndex + 2
 
 	return Click
 end
